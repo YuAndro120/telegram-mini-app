@@ -7,7 +7,7 @@ api_hash = '7210e366e008df4aa5bbe7a99ce751a0'  # Твой API Hash
 phone_number = '+79083181202'  # Твой номер
 
 # Ссылка на Mini App (GitHub Pages)
-MINI_APP_URL = 'https://YuAndro120.github.io/telegram-mini-app/index.html'
+MINI_APP_URL = 'https://yuandro120.github.io/telegram-mini-app/'
 
 # Инициализация клиента
 client = TelegramClient('session_name', api_id, api_hash)
