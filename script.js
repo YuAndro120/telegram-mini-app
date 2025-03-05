@@ -15,3 +15,21 @@ document.addEventListener("DOMContentLoaded", () => {
         tg.close();
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    let cartCount = 0;
+    const cartBtn = document.getElementById("cart-btn");
+    const cartCountElem = document.getElementById("cart-count");
+    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            cartCount++;
+            cartCountElem.textContent = cartCount;
+        });
+    });
+
+    cartBtn.addEventListener("click", function() {
+        alert(`Товаров в корзине: ${cartCount}`);
+    });
+});

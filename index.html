@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Mini App</title>
+    <title>TOMASIN</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="app">
-        <h1>Добро пожаловать, <span id="user-name"></span>!</h1>
-        <img id="user-photo" src="" alt="Фото пользователя">
-        <p>ID: <span id="user-id"></span></p>
-        <button id="close-btn">Закрыть</button>
-    </div>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <header>
+        <h1 class="logo">TOMASIN</h1>
+    </header>
+    <main>
+        <div class="products">
+            <div class="product">Товар 1 <button class="add-to-cart" data-name="Товар 1">Добавить</button></div>
+            <div class="product">Товар 2 <button class="add-to-cart" data-name="Товар 2">Добавить</button></div>
+            <div class="product">Товар 3 <button class="add-to-cart" data-name="Товар 3">Добавить</button></div>
+            <div class="product">Товар 4 <button class="add-to-cart" data-name="Товар 4">Добавить</button></div>
+        </div>
+    </main>
+    <footer>
+        <button id="cart-btn">Корзина (<span id="cart-count">0</span>)</button>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
