@@ -4,6 +4,16 @@ document.addEventListener("DOMContentLoaded", () => {
         tg.expand();
     }
 
+    document.addEventListener("DOMContentLoaded", () => {
+        const tg = window.Telegram?.WebApp;
+        if (tg) {
+            tg.expand();
+            tg.themeParams.bg_color = ""; // Отключаем смену цвета
+            document.body.style.background = 'url(/images/background.jpg) no-repeat center center fixed';
+            document.body.style.backgroundSize = "cover";
+        }
+    });
+    
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const cartCountElem = document.getElementById("cart-count");
 
@@ -111,4 +121,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
         renderCart();
     }
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTfJN6rZ1WC25-olNh4o1g7Ar7ZzYJofDBQkxbmbyxIqaxpdhhI617u5p-azfZPUjDEQ37IfXpRo4M/pub?output=csv"
+
+    fetch(sheetUrl)
+        .then(response => response.text())
+        .then(csvText => {
+            const rows = csvText.split("\n").map(row => row.split(","));
+            rows.shift(); // Удаляем заголовки
+
+            const container = document.getElementById("products-container");
+            rows.forEach(row => {
+                const [name, price, image] = row;
+                const productElem = document.createElement("div");
+                productElem.classList.add("product");
+                productElem.innerHTML = `
+                    <img src="${image}" alt="${name}" class="product-img">
+                    <h3>${name}</h3>
+                    <p>${price} ₽</p>
+                    <button class="add-to-cart" data-name="${name}" data-price="${price}">
+                        Добавить в корзину
+                    </button>
+                `;
+                container.appendChild(productElem);
+            });
+        })
+        .catch(error => console.error("Ошибка загрузки товаров:", error));
 });
