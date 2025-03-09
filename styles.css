@@ -1,40 +1,100 @@
+/* Основные стили для body */
 body {
     font-family: 'Century Gothic', sans-serif;
     background-image: url(/images/background.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #ffffff !important; /* Фон на случай, если картинка не загрузится */
+    background-color: #ffffff; /* Фон на случай, если картинка не загрузится */
     text-align: center;
     margin: 0;
     padding: 0;
+    min-height: 100vh; /* Чтобы body занимал всю высоту экрана */
+    display: flex;
+    flex-direction: column;
 }
 
+/* Стили для header */
 header {
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
 }
 
 .logo {
     font-size: 32px;
     font-weight: bold;
+    color: #333;
 }
 
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+/* Основные стили для контейнера товаров */
+.products-container {
+    display: grid;
+    gap: 16px;
+    padding: 16px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-grow: 1; /* Чтобы контейнер занимал оставшееся пространство */
 }
 
+/* Адаптивная сетка */
+.products-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 карточки в ряд на мобильных */
+}
+
+@media (min-width: 768px) {
+    .products-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряд на планшетах */
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 карточки в ряд на ПК */
+    }
+}
+
+/* Стили для карточки товара */
 .product {
-    background: white;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Изображение товара */
+.product-img {
+    width: 100%;
+    height: 200px; /* Фиксированная высота изображения */
+    object-fit: cover; /* Обрезка изображения по размеру */
+    border-bottom: 1px solid #ddd;
+}
+
+/* Текстовые элементы */
+.product h3 {
+    font-size: 1.1rem;
+    margin: 12px;
+    color: #333;
+    text-align: center;
+}
+
+.product p {
+    font-size: 1rem;
+    margin: 0 12px 12px;
+    color: #666;
+    text-align: center;
+}
+
+/* Кнопки */
 button {
     background-color: black;
     color: white;
@@ -43,8 +103,16 @@ button {
     margin-top: 10px;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.2s;
 }
 
+button:hover {
+    background-color: #333; /* Темнее при наведении */
+}
+
+/* Стили для footer */
 footer {
     margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
 }
