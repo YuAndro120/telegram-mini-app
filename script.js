@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const tg = window.Telegram.WebApp;
-    tg.expand();  // Разворачиваем WebApp на весь экран
+    tg.expand(); // Разворачиваем WebApp на весь экран
 
     // Получаем данные пользователя
     const user = tg.initDataUnsafe?.user;
@@ -14,22 +14,35 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("close-btn").addEventListener("click", () => {
         tg.close();
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
-    let cartCount = 0;
+    // Корзина
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const cartBtn = document.getElementById("cart-btn");
     const cartCountElem = document.getElementById("cart-count");
-    const addToCartButtons = document.querySelectorAll(".add-to-cart");
 
-    addToCartButtons.forEach(button => {
-        button.addEventListener("click", function() {
-            cartCount++;
-            cartCountElem.textContent = cartCount;
+    function updateCartCount() {
+        cartCountElem.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    }
+
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", () => {
+            const name = button.dataset.name;
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ name, quantity: 1 });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartCount();
         });
     });
 
-    cartBtn.addEventListener("click", function() {
-        alert(`Товаров в корзине: ${cartCount}`);
+    updateCartCount();
+
+    cartBtn.addEventListener("click", () => {
+        window.location.href = "cart.html"; // Открываем страницу корзины
     });
 });
