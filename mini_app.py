@@ -5,7 +5,6 @@ from telethon.tl.custom import Button
 api_id = 27395391  # Твой API ID
 api_hash = '7210e366e008df4aa5bbe7a99ce751a0'  # Твой API Hash
 phone_number = '+79083181202'  # Твой номер
-
 # Ссылка на Mini App (GitHub Pages)
 MINI_APP_URL = 'https://yuandro120.github.io/telegram-mini-app/'
 
@@ -16,6 +15,7 @@ client = TelegramClient('session_name', api_id, api_hash)
 async def start(event):
     button = Button.url("Открыть Mini App", MINI_APP_URL)
     await event.respond('Привет! Нажми на кнопку ниже, чтобы открыть Mini App:', buttons=[[button]])
+    raise events.StopPropagation  # Добавлено для остановки дальнейшей обработки
 
 async def main():
     await client.start(phone_number)

@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOMASIN</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOMASIN</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1 class="logo">TOMASIN</h1>
-    </header>
-    <main>
-        <!-- Исправленный контейнер для товаров -->
-        <div id="products-container" class="products-container"></div>
-    </main>
-    <footer>
-        <button id="cart-btn">Корзина (<span id="cart-count">0</span>)</button>
-    </footer>
-    <script src="script.js"></script>
+  <div class="cards-wrapper">
+    <div class="card">
+      <img src="https://placehold.co/256x143" class="card-img img-1">
+      <div class="description">
+        Серьги <br><span class="small-text">из хирургической стали</span>
+      </div>
+      <div class="button">В корзину</div>
+      <svg width="161" height="171" viewBox="0 0 161 171" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="160" height="170" rx="9.5" stroke="black"/>
+      </svg>
+    </div>
+
+    <div class="card">
+      <img src="https://placehold.co/176x176" class="card-img img-2">
+      <div class="description desc-2">
+        Бусы <br><span class="small-text">с крупными элементами</span>
+      </div>
+      <div class="button">В корзину</div>
+      <svg width="161" height="171" viewBox="0 0 161 171" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="160" height="170" rx="9.5" stroke="black"/>
+      </svg>
+    </div>
+  </div>
 </body>
 </html>
+

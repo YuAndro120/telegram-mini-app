@@ -1,118 +1,88 @@
 /* Основные стили для body */
 body {
-    font-family: 'Century Gothic', sans-serif;
-    background-image: url(/images/background.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #ffffff; /* Фон на случай, если картинка не загрузится */
-    text-align: center;
     margin: 0;
-    padding: 0;
-    min-height: 100vh; /* Чтобы body занимал всю высоту экрана */
+    font-family: 'Century Gothic', sans-serif;
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+  }
+  
+  .cards-wrapper {
+    padding: 16px 10px;
     display: flex;
-    flex-direction: column;
-}
-
-/* Стили для header */
-header {
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
-}
-
-.logo {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-}
-
-/* Основные стили для контейнера товаров */
-.products-container {
-    display: grid;
+    flex-wrap: wrap;
     gap: 16px;
-    padding: 16px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-grow: 1; /* Чтобы контейнер занимал оставшееся пространство */
-}
-
-/* Адаптивная сетка */
-.products-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 карточки в ряд на мобильных */
-}
-
-@media (min-width: 768px) {
-    .products-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряд на планшетах */
-    }
-}
-
-@media (min-width: 1024px) {
-    .products-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 карточки в ряд на ПК */
-    }
-}
-
-/* Стили для карточки товара */
-.product {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 45%;
+    max-width: 180px;
+    aspect-ratio: 2/3;
     background: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.product:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Изображение товара */
-.product-img {
-    width: 100%;
-    height: 200px; /* Фиксированная высота изображения */
-    object-fit: cover; /* Обрезка изображения по размеру */
-    border-bottom: 1px solid #ddd;
-}
-
-/* Текстовые элементы */
-.product h3 {
-    font-size: 1.1rem;
-    margin: 12px;
-    color: #333;
-    text-align: center;
-}
-
-.product p {
-    font-size: 1rem;
-    margin: 0 12px 12px;
-    color: #666;
-    text-align: center;
-}
-
-/* Кнопки */
-button {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.2s;
-}
-
-button:hover {
-    background-color: #333; /* Темнее при наведении */
-}
-
-/* Стили для footer */
-footer {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
-}
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card-img {
+    position: absolute;
+  }
+  
+  .img-1 {
+    width: 256px;
+    height: 143px;
+    top: 27px;
+    left: -39px;
+  }
+  
+  .img-2 {
+    width: 176px;
+    height: 176px;
+    top: 16px;
+    left: 1px;
+  }
+  
+  .description {
+    position: absolute;
+    left: 13px;
+    top: 184px;
+    font-size: 12px;
+    color: black;
+  }
+  
+  .desc-2 {
+    left: 16px;
+    top: 186px;
+  }
+  
+  .small-text {
+    font-size: 10px;
+  }
+  
+  .button {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: 116px;
+    height: 26px;
+    background: white;
+    border-radius: 24px;
+    outline: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  
+  .card svg {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+  }
+  
